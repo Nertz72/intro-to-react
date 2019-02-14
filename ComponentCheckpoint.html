@@ -10,21 +10,42 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.1.0/umd/react-dom.development.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
         <script type="text/babel">
-            class FirstReact extends React.Component {
-                render() {
-                    return (
-                        <div>
-                            <h1>This is my first react project</h1>
-                            <h2>I hope this is what I'm supposed to do</h2>
-                            <h3>I'll find out soon enough, I guess...</h3>
-                        </div>
-                    );
+            
+        class MyStatus extends React.Component {
+            constructor(props){
+                super(props);
+                this.state = {
+                number: 6
                 }
             }
             
-            ReactDOM.render(
-                <FirstReact />, document.getElementById('app')
-            );
+            render() {
+                return (
+                    <div>
+                        <img src={this.props.image} alt="Bloc Logo"/>
+                        <h1>My name is: {this.props.name}</h1>
+                        <h2>This is my program: {this.props.label}</h2>
+                        <h3>I am in week: {this.state.number}</h3>
+                        <p>Today's Date: {this.props.date.toLocaleDateString()}</p>                     
+                    </div>
+                    );
+                }
+            }
+    
+            const info = {
+                date: new Date(),
+                image: 'https://avatars0.githubusercontent.com/u/1441485?v=4&s=280',
+                label: "Web Developer Track",
+                name: "Allison Philips"
+                }
+
+      ReactDOM.render(
+        <MyStatus
+          date={info.date}
+          label={info.label}
+          name={info.name}
+          image={info.image}/>,document.getElementById('app')
+      );
         </script>
     </body>
 </html>
