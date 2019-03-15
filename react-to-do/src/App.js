@@ -18,6 +18,7 @@ class App extends Component {
     handleChange(e) {
         this.setState({ newTodoDescription: e.target.value })
     }
+<<<<<<< HEAD
     
     handleSubmit(e) {
         e.preventDefault();
@@ -26,11 +27,24 @@ class App extends Component {
         this.setState({ todos: [...this.state.todos, newTodo], newTodoDescription: '' });
     }
 
+=======
+    handleSubmit(e) {
+        e.preventDefault();
+        if (!this.state.newTodoDescription) { return }
+        const newTodo = { description: this.state.newTodoDescription, isCompleted: false };
+        this.setState({ todos: [...this.state.todos, newTodo], newTodoDescription: '' });
+    }
+    
+>>>>>>> ReactToDo_Events
     toggleComplete(index) {
         const todos = this.state.todos.slice();
         const todo = todos[index];
         todo.isCompleted = todo.isCompleted ? false : true;
+<<<<<<< HEAD
         this.setState({ todos: todos });
+=======
+        this.setState({todos: todos });
+>>>>>>> ReactToDo_Events
     }
     
   render() {
@@ -42,7 +56,11 @@ class App extends Component {
         )}
         </ul>
         <form onSubmit={ (e) => this.handleSubmit(e) }>
+<<<<<<< HEAD
             <input type="text" value={ this.state.newTodoDescription } onChange={ (e) => this.handleChange(e) } />
+=======
+            <input type="text" value={this.state.newTodoDescription } onChange={ (e) => this.handleChange(e) } />
+>>>>>>> ReactToDo_Events
             <input type="submit" />
         </form>
       </div>
