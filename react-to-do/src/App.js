@@ -18,6 +18,7 @@ class App extends Component {
     handleChange(e) {
         this.setState({ newTodoDescription: e.target.value })
     }
+    
     handleSubmit(e) {
         e.preventDefault();
         if (!this.state.newTodoDescription) { return }
